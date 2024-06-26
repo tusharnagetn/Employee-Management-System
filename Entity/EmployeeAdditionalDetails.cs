@@ -1,4 +1,5 @@
 ﻿using Employee_Management_System.Common;
+using Employee_Management_System.DTO;
 using Newtonsoft.Json;
 
 namespace Employee_Management_System.Entity
@@ -22,5 +23,21 @@ namespace Employee_Management_System.Entity
 
         [JsonProperty(PropertyName = "identityInformation", NullValueHandling = NullValueHandling.Ignore)]
         public IdentityInfo_ IdentityInformation { get; set; }
+    }
+
+    public class EmployeeAdditionalDetailsFilterCriteria
+    {
+        public EmployeeAdditionalDetailsFilterCriteria()
+        {
+            Filter = new List<FilterCriteria>();
+
+            employeeAdditionalDetailsDTOs = new List<EmployeeAdditionalDetailsDTO>();
+        }
+
+        public int Page { get; set; }
+        public int PageSize { get; set; }
+        public int TotalCount { get; set; }
+        public List<FilterCriteria> Filter { get; set; }
+        public List<EmployeeAdditionalDetailsDTO> employeeAdditionalDetailsDTOs { get; set; }
     }
 }

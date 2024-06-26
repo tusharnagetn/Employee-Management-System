@@ -2,6 +2,7 @@ using Employee_Management_System.Common;
 using Employee_Management_System.CosmosDB;
 using Employee_Management_System.Interface;
 using Employee_Management_System.Service;
+using Employee_Management_System.ServiceFilters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,10 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<ICosmoseDBService, CosmosDBService>();
 builder.Services.AddScoped<IEmployeeBasicDetailsService, EmployeeBasicDetailsService>();
 builder.Services.AddScoped<IEmployeeAdditionalDetailsService, EmployeeAdditionalDetailsService>();
-
+builder.Services.AddScoped<IAssignmentEightService, AssignmentEightService>();
+builder.Services.AddScoped<BuildEmployeeBasicDetailFilter>();
+builder.Services.AddScoped<BuildEmployeeAdditionalDetailFilter>();
+builder.Services.AddScoped<BuildEmployeeAdditionalDetailByUIdFilter>();
 builder.Services.AddAutoMapper(typeof(Mapper));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

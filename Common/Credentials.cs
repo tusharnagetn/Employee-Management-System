@@ -14,5 +14,10 @@
 
         public static readonly string EmployeeAdditionalDetailsDocumentType = "EmployeeAdditionalDetails";
 
+        public static readonly string BaseUrl = Environment.GetEnvironmentVariable("BaseUrl");
+
+        public static readonly string AddSecurity = "/api/Security/AddSecurity";
+
+        public static readonly string GetSecurityByUId = "/api/Security/GetSecurityByUId/";
     }
 }

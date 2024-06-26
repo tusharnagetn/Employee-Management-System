@@ -127,18 +127,21 @@ namespace Employee_Management_System.Service
             {
                 var additionalDetails = allAdditionalDetails.Find(x => x.EmployeeBasicDetailsUId == item.UId);
 
-                var toAdd = new EmployeeDetailsDTO()
+                if (additionalDetails != null)
                 {
-                    FirstName = item.FirstName,
-                    LastName = item.LastName,
-                    Email = item.Email,
-                    Mobile = item.Mobile,
-                    ReportingManagerName = item.ReportingManagerName,
-                    DateOfBirth = additionalDetails.PersonalDetails.DateOfBirth.ToString("dd-MM-yyyy"),
-                    DateOfJoining = additionalDetails.WorkInformation.DateOfJoining.ToString("dd-MM-yyyy"),
-                };
+                    var toAdd = new EmployeeDetailsDTO()
+                    {
+                        FirstName = item.FirstName,
+                        LastName = item.LastName,
+                        Email = item.Email,
+                        Mobile = item.Mobile,
+                        ReportingManagerName = item.ReportingManagerName,
+                        DateOfBirth = additionalDetails.PersonalDetails.DateOfBirth.ToString("dd-MM-yyyy"),
+                        DateOfJoining = additionalDetails.WorkInformation.DateOfJoining.ToString("dd-MM-yyyy"),
+                    };
 
-                toResponse.Add(toAdd);
+                    toResponse.Add(toAdd);
+                }
             }
 
             return toResponse;

@@ -61,6 +61,10 @@ namespace Employee_Management_System.Entity
 
     public class FilterCriteria
     {
+        public FilterCriteria() 
+        {
+            FieldValue = new List<string>();
+        }
         public string FieldName { get; set; }
         public List<string> FieldValue { get; set; }
     }
